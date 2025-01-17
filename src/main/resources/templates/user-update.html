@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+
+<h1>Изменить пользователя</h1>
+<form action="#" method="post" th:action="@{/user-update}" th:object="${user}">
+
+    <input id="id" name="id" readonly="readonly" th:value="${user.id}" type="hidden"/>
+
+    <div class="form-group">
+        <label for="name">Имя</label>
+        <input id="name" th:field="*{name}" type="text"/>
+        <div style="color:red" th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Ошибка!</div>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Фамилия</label>
+        <input id="lastName" th:field="*{lastName}" type="text"/>
+        <div style="color:red" th:errors="*{lastName}" th:if="${#fields.hasErrors('lastName')}">Ошибка!</div>
+    </div>
+
+    <div class="form-group">
+        <label for="age">Возраст</label>
+        <input id="age" th:field="*{age}" type="number"/>
+        <div style="color:red" th:errors="*{age}" th:if="${#fields.hasErrors('age')}">Ошибка!</div>
+    </div>
+
+    <input class="button" type="submit" value="Обновить пользователя"/>
+    <a class="button" href="/">Вернуться к списку пользователей</a>
+
+</form>
+
+</body>
+</html>

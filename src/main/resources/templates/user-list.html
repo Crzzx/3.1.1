@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Все люди</title>
+</head>
+<body>
+<div class="container">
+  <h1>Список пользователей</h1>
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th class="ageth">Возраст</th>
+        <th class="actionsth" colspan="2">Действия</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="user : ${users}">
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.age}"></td>
+        <td class="button">
+          <a th:href="@{/user-update(id=${user.id})}">Изменить</a>
+        </td>
+        <td class="button">
+          <a th:href="@{/user-delete(id=${user.id})}">Удалить</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="create-button" onclick="document.location='user-add'">Создать пользователя</button>
+</div>
+</body>
+</html>
