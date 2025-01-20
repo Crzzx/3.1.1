@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.Service.UserServiceImp;
+import com.example.demo.service.UserService;
 import com.example.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -13,10 +13,10 @@ import org.springframework.ui.Model;
 @Controller
 public class UsersController {
 
-    private final UserServiceImp userService;
+    private final UserService userService;
 
     @Autowired
-    public UsersController(UserServiceImp userService) {
+    public UsersController(UserService userService) {
         this.userService = userService;
     }
 
